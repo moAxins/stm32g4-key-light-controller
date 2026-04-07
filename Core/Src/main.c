@@ -94,8 +94,51 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    // 1. 检测 B1 (PB0) → 控制 LD1 (PC8)
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET) 
+    {
+        HAL_Delay(10); // 软件消抖10ms
+        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET) 
+        {
+            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); // 翻转LD1状态
+            // 等待按键松开，防止一直按着导致灯狂闪
+            while(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET); 
+        }
+    }
+
+    // 2. 检测 B2 (PB1) → 控制 LD2 (PC9)
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_RESET) 
+    {
+        HAL_Delay(10); 
+        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_RESET) 
+        {
+            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); 
+            while(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_RESET); 
+        }
+    }
+
+    // 3. 检测 B3 (PB2) → 控制 LD3 (PC10)
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2) == GPIO_PIN_RESET) 
+    {
+        HAL_Delay(10); 
+        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2) == GPIO_PIN_RESET) 
+        {
+            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10); 
+            while(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2) == GPIO_PIN_RESET); 
+        }
+    }
+
+    // 4. 检测 B4 (PA0) → 控制 LD4 (PC11)
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_RESET) 
+    {
+        HAL_Delay(10); 
+        if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_RESET) 
+        {
+            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); 
+            while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_RESET); 
+        }
+    }
     /* USER CODE END WHILE */
-		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_RESET);
 		
     /* USER CODE BEGIN 3 */
   }

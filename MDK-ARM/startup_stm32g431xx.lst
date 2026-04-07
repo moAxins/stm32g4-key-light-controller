@@ -678,11 +678,11 @@ ARM Macro Assembler    Page 11
               00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=stm32g4-key-light-controller\startup_stm32g431xx.d -ostm32g4-ke
-y-light-controller\startup_stm32g431xx.o -I.\RTE\_stm32g4-key-light-controller 
--IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include --predefine="__UVISION_VERS
-ION SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32G431xx SETA 1" --lis
-t=startup_stm32g431xx.lst startup_stm32g431xx.s
+erwork --depend=.\stm32g4-key-light-controller\startup_stm32g431xx.d -o.\stm32g
+4-key-light-controller\startup_stm32g431xx.o -I.\RTE\_stm32g4-key-light-control
+ler -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include --predefine="__UVISION_
+VERSION SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32G431xx SETA 1" -
+-list=startup_stm32g431xx.lst startup_stm32g431xx.s
 
 
 
